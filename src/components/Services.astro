@@ -1,0 +1,39 @@
+---
+const services = [
+  {
+    title: "Locución Publicitaria",
+    description: "Anuncios comerciales para radio, televisión e internet. Una voz persuasiva y memorable que logra enganchar a tus consumidores con cada palabra.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400"><path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v14"/><path d="M22 10v3"/></svg>`
+  },
+  {
+    title: "Voice Over Corporativo",
+    description: "Videos internos, presentaciones, sistemas telefónicos y e-learning. Tono institucional, claro y sumamente profesional para tu empresa.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-400"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`
+  },
+  {
+    title: "Podcasts & Narración",
+    description: "Intros/Outros de podcasts, documentales cortos o audiolibros. Relatos inmersivos con una cadencia perfecta que invitan a quedarse escuchando.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>`
+  }
+];
+---
+<section id="servicios" class="py-24 relative bg-slate-900/20 border-y border-slate-800/50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+    <div class="text-center mb-16">
+      <span class="text-blue-400 font-semibold tracking-wider uppercase text-sm">Servicios Especializados</span>
+      <h2 class="text-3xl md:text-5xl font-bold mt-2 mb-4">¿En qué puedo <span class="text-gradient">ayudarte?</span></h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {services.map((service) => (
+         <div class="glass-card p-8 group hover:scale-[1.03]">
+           <div class="w-16 h-16 rounded-2xl bg-slate-800/80 flex items-center justify-center mb-8 shadow-lg shadow-black/50 border border-slate-700/50 backdrop-blur-md" set:html={service.icon} />
+           <h3 class="text-xl font-bold text-slate-100 mb-4">{service.title}</h3>
+           <p class="text-slate-400 leading-relaxed text-sm md:text-base">
+             {service.description}
+           </p>
+         </div>
+      ))}
+    </div>
+  </div>
+</section>

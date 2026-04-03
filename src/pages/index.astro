@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import DemosSection from "../components/DemosSection.tsx";
+import Services from "../components/Services.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Contact from "../components/Contact.astro";
+---
+
+<Layout title="Esther Morales | Locutora Profesional & Voiceover">
+	<main>
+		<Hero />
+		<About />
+		<!-- Cargamos el player de audio interactivo solo cuando sea visible -->
+		<DemosSection client:visible />
+		<Services />
+		<Testimonials />
+		<Contact />
+	</main>
+</Layout>
