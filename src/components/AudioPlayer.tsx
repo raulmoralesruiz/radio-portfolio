@@ -78,32 +78,32 @@ export default function AudioPlayer({ id, title, url, duration, category }: Audi
   };
 
   return (
-    <div className="glass-card p-4 md:p-5 flex flex-col sm:flex-row items-center gap-4 w-full">
+    <div className="glass-card flex w-full flex-col items-center gap-4 p-4 sm:flex-row md:p-5">
       <button 
         onClick={togglePlay}
         disabled={!isReady}
-        className="flex-shrink-0 w-14 h-14 flex items-center justify-center rounded-full bg-slate-800/80 border border-slate-700 hover:border-purple-500 hover:text-purple-400 text-slate-300 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500/50 disabled:opacity-50 disabled:cursor-not-allowed group"
+        className="group flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-slate-700 bg-slate-800/80 text-slate-300 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500/50 disabled:cursor-not-allowed disabled:opacity-50 hover:border-purple-500 hover:text-purple-400"
       >
         {isPlaying ? (
           <Pause size={24} fill="currentColor" className="text-purple-400" />
         ) : (
-          <Play size={24} fill="currentColor" className="ml-1 group-hover:text-purple-400 transition-colors" />
+          <Play size={24} fill="currentColor" className="ml-1 transition-colors group-hover:text-purple-400" />
         )}
       </button>
 
-      <div className="flex-1 w-full min-w-0 flex flex-col justify-center pt-1">
-        <div className="flex justify-between items-end mb-2">
-          <div className="truncate pr-4">
-            <span className="text-[10px] font-bold text-blue-400 mb-1 block uppercase tracking-wider">{category}</span>
-            <h4 className="text-sm font-medium truncate text-slate-100">{title}</h4>
+      <div className="flex-1 flex w-full min-w-0 flex-col justify-center pt-1">
+        <div className="mb-2 flex items-end justify-between">
+          <div className="pr-4 truncate">
+            <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-blue-400">{category}</span>
+            <h4 className="truncate text-sm font-medium text-slate-100">{title}</h4>
           </div>
-          <span className="text-xs text-slate-400 font-mono tracking-wider tabular-nums">{duration}</span>
+          <span className="font-mono text-xs tabular-nums tracking-wider text-slate-400">{duration}</span>
         </div>
         <div className="w-full relative">
           <div ref={containerRef} className="w-full" />
           {!isReady && (
             <div className="absolute inset-0 flex items-center">
-              <div className="h-0.5 w-full bg-slate-800 rounded animate-pulse"></div>
+              <div className="h-0.5 w-full animate-pulse rounded bg-slate-800"></div>
             </div>
           )}
         </div>
